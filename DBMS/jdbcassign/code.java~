@@ -1,0 +1,17 @@
+import java.sql.*;
+class code{
+    public static void main(String[] args){
+	try{
+	    String url="jdbc:mysql://localhost:3306/jdbcassign";
+	    String username="root";
+	    String pass="Sanjeev@sql01";
+	    Connection conn=DriverManager.getConnection(url,username,pass);
+	    Statement stmt=conn.createStatement();
+	    ResultSet res=stmt.executeQuery("select * from assign1");
+	    while(res.next())
+		{
+		    System.out.println(res.getString("Categories"));
+		}
+	}
+    }
+}

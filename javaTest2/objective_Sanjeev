@@ -1,0 +1,45 @@
+1. 2
+2. B.public double methda();
+3. protected
+4. A
+5. default access
+6. D. if a method is returning a value the calling statement must have a variable to store tha value
+
+7. Boolean
+
+8. Final class
+
+9. Interfaces
+
+10. B. Class: chocolate
+       Objects:- Fruit chocolate, Rum chocolate, milk chocolates
+ 
+ 11. D
+ 
+ 12. B. I am a student
+ 
+ 13. A. 0 8
+ 
+ 14. C. compilation fails because final keyword cannot be override.
+ 
+ 15. B. false true
+ 
+ 16. D. slipstream slip stream
+ 
+ 17. Never
+ 
+ 18. 0
+ 
+ 19. A. A constructor is called at the time of declaration of an object.
+ 
+ 20. both A and B
+ 
+21. Always
+
+22. B. 20 400
+
+23. C. both a and b
+
+24. Encapsulation
+
+25. 2 0

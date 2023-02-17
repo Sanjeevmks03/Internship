@@ -1,0 +1,168 @@
+1. A. Structured Query Language
+2. B. LIKE operator
+3. A. ALTER TABLE
+4. A. SELECT DISTINCT
+5. B. SELECT username,password from Users
+6. C. has a Distinct form that duplicated by a join
+7. B. A view is a virtual table which results of executing a pre-compiled query. A view is not part of the physical database schema, while regular tables are.
+8. C. SELECT
+9. B. AVG
+10. B. UPDATE
+11. B. ALTER TABLE Student add F_name varchar(20);
+12. B. It is faster than DELETE command
+13. B. drop index stu_marks_ind;
+14. B. 9
+15. B. Column Alias
+16. B. SELECT city FROM weather WHERE humidity=89;
+17. C. SELECT city, temperature from weather ORDER BY temperature;
+18. D. Feature ha two 0's in it any position
+19. A. SELECT city,temperature,condition from weather WHERE condition NOT IN('sunny','cloudy');
+20. A. SELECT * FROM weather WHERE temperature > (SELECT temperature from weather WHERE city='Paris');
+21. A. SELECT DISTINCT s.sname FROM sailors s, reserves r WHERE s.sid = r.sid;
+22. A. NOT will be evaluated first, AND will be evaluated second, OR will be evaluated last
+23. B. ALTERNATE KEY
+24. A. acts like a WHERE cluase but is used for groups rather than rows.
+25. A. limits the row data that are returned.
+26. A. Both queries will give same outputs
+27. A. parenthesis
+28. D. All of the above
+29. B. SELECT name from student WHERE age>50 and age<80
+30. D All of the above
+
+31. 
+
+a. 
+select Customers.name as CustomerName,
+count(*) as NumberofOrder From Customers 
+join Orders 
+ON Customers.cid=Orders.cid
+group by Customers.name;
+
+
+b.
+select count(*) as NumberOfCustomer From Employees
+join Orders
+ON Employees.eid=Orders.eid
+where Employees.name="Dave";
+
+c.
+select count(*) From Orders
+join Customers
+ON Orders.cid=Customers.cid
+Where Orders.orderDate="20-07-2018";
+
+d.
+select count(DISTINCT(Orders.cid)) from Orders 
+join Customers
+On Orders.cid=Customers.cid
+where Orders.OrderDate="20-07-2018"
+group by Customers.cid
+having count(*)>1;
+
+e.
+
+select Employees.name from Employees
+Join Orders
+ON Orders.eid=Employees.eid
+Where Orders.orderDate="20-07-2018"
+group by Employees.name
+order by count(Orders.oid) DESC limit 1;
+
+
+
+
+Whole Code::--
+
+
+create database coffeeShop;
+USE coffeeShop;
+Create table Customers(
+cid int primary key,
+name varchar(255),
+phone varchar(255)
+);
+
+Create table Employees(
+eid int primary key,
+name varchar(255),
+phone varchar(255)
+);
+
+Create table Orders(
+oid int primary key,
+cid int ,
+eid int ,
+FOREIGN KEY (cid) REFERENCES Customers(cid),
+FOREIGN KEY (eid) REFERENCES Employees(eid),
+orderDate varchar(255)
+);
+
+Show tables;
+
+
+insert into Customers(cid,name,phone) 
+value(1,"Sanjeev","7942974"),
+(2,"manish","79429753"),
+(3,"Chhotu","794234574"),
+(4,"Nitish","79422344"),
+(5,"Sanju","793534974"),
+(6,"rohit","79231274"),
+(7,"Munna","794297344"),
+(8,"Rahul","794232111");
+
+insert into Employees(eid,name,phone)
+value(4,"rajnish","7942974"),
+(2,"Dave","79429734333"),
+(3,"edward","7942325574"),
+(1,"sherald","79422344");
+
+insert into Orders(oid,cid,eid,orderDate) 
+value (1,5,2,"20-02-2018"),
+(2,8,3,"20-02-2018"),
+(12,5,4, "18-02-2023"),
+(5,2,4,"27-01-2019");
+
+
+insert into Orders(oid,cid,eid,orderDate) 
+value (13,6,1,"20-07-2018"),
+(9,4,2,"20-07-2018");
+
+insert into Orders(oid,cid,eid,orderDate) 
+value (16,6,2,"20-07-2018");
+
+select Customers.name as CustomerName,
+count(*) as NumberofOrder From Customers 
+join Orders 
+ON Customers.cid=Orders.cid
+group by Customers.name;
+
+insert into Orders value(7,3,2,14-02-2010);
+
+select count(*) as NumberOfCustomer From Employees
+join Orders
+ON Employees.eid=Orders.eid
+where Employees.name="Dave";
+
+select count(*) From Orders
+join Customers
+ON Orders.cid=Customers.cid
+Where Orders.orderDate="20-07-2018";
+
+select * from Orders;
+truncate table Orders;
+
+
+select count(DISTINCT(Orders.cid)) from Orders 
+join Customers
+On Orders.cid=Customers.cid
+where Orders.OrderDate="20-07-2018"
+group by Customers.cid
+having count(*)>1;
+
+
+select Employees.name from Employees
+Join Orders
+ON Orders.eid=Employees.eid
+Where Orders.orderDate="20-07-2018"
+group by Employees.name
+order by count(Orders.oid) DESC limit 1;

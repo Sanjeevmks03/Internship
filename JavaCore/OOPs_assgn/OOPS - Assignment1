@@ -1,0 +1,370 @@
+1) Write An example implementing overriding and overloading (Polymorphism)?
+
+// Implementing function overloading 
+
+public class Overloading{ 
+
+    public static void main(String args[]) 
+    
+    { 
+    
+    func(); 
+    
+    func("Sanjeev"); 
+    
+    func(9); 
+    
+    } 
+    
+    public static void func() 
+    
+    { 
+    
+    System.out.println("This is a function with 0 argument"); 
+    
+    } 
+    
+    public static void func(String name) 
+    
+    { 
+    
+    System.out.println("Hello " + name + " ,This is a function with 1 argument"); 
+    
+    } 
+    
+    public static void func(int date) 
+    
+    { 
+    
+    System.out.println("This is a function with argument as integer as today date is"+ date+ "(passed argument)"); 
+    
+    } 
+    
+    } 
+    
+    
+    // Implementing function overriding 
+
+class func2 extends func{ 
+
+    public void show() 
+    
+    { 
+    
+    System.out.println("This is func2 class"); 
+    
+    } 
+    
+    } 
+    
+    class func extends Overiding{ 
+    
+    public void show() 
+    
+    { 
+    
+    System.out.println("This is extended class"); 
+    
+    } 
+    
+    } 
+    
+    class Overiding{ 
+    
+    public void show() 
+    
+    { 
+    
+    System.out.println("This is parent class"); 
+    
+    } 
+    
+    public static void main(String args[]) 
+    
+    { 
+    
+    Overiding obj3=new Overiding(); 
+    
+    obj3.show(); 
+    
+     
+    
+    // This is overriding 
+    
+    Overiding obj1=new func(); 
+    
+    obj1.show(); 
+    
+    Overiding obj=new func2(); 
+    
+    obj.show(); 
+    
+     
+    
+    } 
+    
+    } 
+    
+    
+
+
+2) The Guessing Game:
+The guessing game involves a 'game' object and three 'player' objects. The game generates a random number between
+0 and 9, and the three player objects try to guess it.
+Write a program for the game.
+Classes:
+GuessGame.class
+Player.class
+GameLauncher.class
+The logic:
+i. The GameLauncher class is where the application starts; it has the main method.
+ii. In the main() method a GuessGame object is created, and its startGame() method is called.
+iii. The GuessGame objects startGame() method is where the entire game plays out.
+It creates three playerd, then thinkd of a random number(the target). It then asks each player to guess, checks the 
+result, and either prints out information about the winning players or asks them to guess again.
+
+import java.util.Scanner; 
+import java.lang.Math; 
+public class Gamelaunch 
+{ 
+    public static void main(String[] args) 
+    { 
+        guessgame obj=new guessgame(); 
+        obj.startgame(); 
+    } 
+} 
+
+class player 
+{ 
+    int k; 
+    int guess(int num) 
+    { 
+        System.out.println("player "+num+" Guess a number::");
+        Scanner sc=new Scanner(System.in);
+        int g=sc.nextInt();
+        return g; 
+    } 
+} 
+
+class guessgame 
+{ 
+    void startgame() 
+    { 
+        int x= ((int)(10*Math.random())); 
+        
+        player p1=new player(); 
+        player p2=new player(); 
+        player p3=new player(); 
+        int n=0; 
+        while(n==0) 
+        { 
+            int x1=p1.guess(1); 
+            int x2=p2.guess(2); 
+            int x3=p3.guess(3); 
+            if(x==x1) 
+            { 
+                System.out.println("player 1 guessed correctly"); 
+                n++; 
+            } 
+            if(x==x2) 
+            { 
+                System.out.println("player 2 guessed correctly"); 
+                n++; 
+            } 
+            if(x==x3) 
+            { 
+                System.out.println("player 3 guessed correctly"); 
+                n++; 
+            } 
+            if(n>0) 
+            { 
+                System.out.println("player1 has guessed:: " + x1); 
+                System.out.println("player2 has guessed:: " + x2); 
+                System.out.println("player3 has guessed:: " + x3); 
+            } 
+            if(n==0) 
+            { 
+                System.out.println("No one guessed correctly,"); 
+
+                System.out.println("Please guess again::"); 
+            } 
+        } 
+        System.out.println("Random number is:: " + x); 
+    } 
+} 
+
+
+3) Write an inheritance hierarchy for classes Quadrilateral , Trapezoid , Parallelogram ,
+Rectangle and Square . Use Quadrilateral as the superclass of the hierarchy. Create and use a Point
+class to represent the points in each shape. Make the hierarchy as deep (i.e., as many levels) as possible. Specify the instance variables and methods for each class. The private instance variables of
+Quadrilateral should be the x-y coordinate pairs for the four endpoints of the Quadrilateral.
+Write a program that instantiates objects of your classes and outputs each object’s area (except Quadrilateral)
+
+
+
+
+
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args)
+    {
+        float x1,x2,x3,x4,y1,y2,y3,y4;
+        Scanner sc=new Scanner(System.in);
+        int n=0;
+        while(n==0)
+        {
+            System.out.println("Which figure area you want? ");
+            System.out.println("1. Square");
+            System.out.println("2. rectangle");
+            System.out.println("3. parallelogram");
+            System.out.println("4. Trapezoid");
+            int k=sc.nextInt();
+            if(k>=1 && k<=4)
+            {
+                System.out.println("Please, Enter the sides accordingly::");
+                System.out.println("Enter x,y,coordinates for point 1:: ");
+                x1=sc.nextInt();
+                y1=sc.nextInt();
+
+                System.out.println("Enter x,y,coordinates for point 2:: ");
+                x2=sc.nextInt();
+                y2=sc.nextInt();
+
+                System.out.println("Enter x,y,coordinates for point 3:: ");
+                x3=sc.nextInt();
+                y3=sc.nextInt();
+
+                System.out.println("Enter x,y,coordinates for point 4:: ");
+                x4=sc.nextInt();
+                y4=sc.nextInt();
+
+                switch(k)
+                {
+                    case 1:
+                    System.out.println("Area of Square::");
+                    sqre s=new sqre(x1,x2,x3,x4,y1,y2,y3,y4);
+                    System.out.println(s.area());
+                    n++;
+                    break;
+
+                    case 2:
+                    System.out.println("Area of rectangle::");
+                    rectangle r=new rectangle(x1,x2,x3,x4,y1,y2,y3,y4);
+                    System.out.println(r.area());
+                    n++;
+                    break;
+
+                    case 3:
+                    System.out.println("Area of parallelogram::");
+                    parallelogram p=new parallelogram(x1,x2,x3,x4,y1,y2,y3,y4);
+                    System.out.println(p.area());
+                    n++;
+                    break;
+
+                    case 4:
+                    System.out.println("Area of Trapezoid::");
+                    trapezoid t=new trapezoid(x1,x2,x3,x4,y1,y2,y3,y4);
+                    System.out.println(t.area());
+                    n++;
+                    break;
+
+                }
+            }
+            if(n==0)
+            {
+                System.out.println("Please enter correct number::");
+            }
+        }
+    }
+}
+class Quad{  
+    point p1,p2,p3,p4;
+    Quad(float x1,float x2,float x3,float x4,float y1,float y2,float y3,float y4)
+    {
+        p1=new point(x1,y1);
+        p2=new point(x2,y2);
+        p3=new point(x3,y3);
+        p4=new point(x4,y4);
+    }
+    public float Trainglearea(point a, point b, point c){
+        float area = (a.x * (b.y - c.y)
+                    + b.x * (c.y - a.y) + c.x * (a.y - b.y)) / 2.0f;
+        return Math.abs(area);
+    }
+
+    public float sideLength(point a, point b){
+        float dis = (float) Math.sqrt((b.x-a.x)*(b.x-a.x) + (b.y-a.y)*(b.y-a.y));
+        return dis;
+    }
+    point getP1()
+    {
+        return p1;
+    }
+    point getP2()
+    {
+        return p2;
+    }
+    point getP3()
+    {
+        return p3;
+    }
+    point getP4()
+    {
+        return p4;
+    }
+    
+}
+public class point{
+    
+    float x,y;
+    point(float x,float y)
+    {
+        this.x=x;
+        this.y=y;
+    }
+}
+public class sqre extends Quad{ 
+    sqre(float x1,float x2,float x3,float x4,float y1,float y2,float y3,float y4)
+    {
+        super(x1,x2,x3,x4,y1,y2,y3,y4);
+    }
+
+    public float area(){
+        return (float) (Math.pow(sideLength(getP1(), getP2()),2));
+    }
+    
+}
+public class rectangle extends Quad{
+    rectangle(float x1,float x2,float x3,float x4,float y1,float y2,float y3,float y4)
+    {
+        super(x1,x2,x3,x4,y1,y2,y3,y4);
+    }
+
+    
+    public float area(){
+        return (sideLength(getP1(), getP2())*sideLength(getP3(), getP4()));
+    }
+}
+public class trapezoid extends Quad{
+    trapezoid(float x1,float x2,float x3,float x4,float y1,float y2,float y3,float y4)
+    {
+        super(x1,x2,x3,x4,y1,y2,y3,y4);
+    }
+
+    public float area(){
+        return (Trainglearea(getP1(), getP2(), getP3() ) + Trainglearea(getP1(), getP3(), getP4()));
+    }
+}
+
+public class parallelogram extends Quad{
+    parallelogram(float x1,float x2,float x3,float x4,float y1,float y2,float y3,float y4)
+    {
+        super(x1,x2,x3,x4,y1,y2,y3,y4);
+    }
+
+    public float area(){
+        return 2*(Trainglearea(getP1(), getP2(), getP3()));
+    }
+}
+

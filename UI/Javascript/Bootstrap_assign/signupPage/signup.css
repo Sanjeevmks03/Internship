@@ -1,0 +1,79 @@
+
+body{
+    background-size: cover;
+    height: 600px;
+    
+}
+.signup{
+    color: #3897f0;
+    border-bottom: 1px solid gray;
+    text-align: center;
+    font-family: Lato;
+    font-size: large;
+    font-weight: bold;
+    margin-top: 10px;
+    padding-bottom: 10px;
+
+}
+#form{
+    padding-top: 35px;
+}
+::placeholder{
+    font-style: italic;
+    font-size: small;
+}
+
+.form-group{
+    margin-left: 23%;
+    margin-right: 23%;
+    margin-bottom: 0px;
+}
+#sign{
+    text-align: center;
+    color: rgba(30,144,255,255);
+}
+#fname{
+    height: 25px;
+    margin: 0px;
+}
+#lname{
+    height: 25px;
+}
+#dob{
+    height: 25px;
+    padding: 1px;
+    padding-left: 5px;
+    font-style: italic;
+    font-size: small;
+}
+#eid{
+    height: 25px;
+}
+#email{
+    height: 25px;
+}
+#pimage{
+    height: 25px;
+    padding: 1px;
+    font-size: small;
+    margin-left: 5px;
+    
+}
+#pass{
+    height: 25px;
+}
+#signup{
+    width: 70%;
+    height: 30px;
+    text-align: center;
+    padding: 0px;
+    margin-top: 5px;
+}
+#image{
+    float: inline-end;
+    margin-top: 4px;
+}
+label{
+    color: #3d3948;
+    font-size: small;
+}

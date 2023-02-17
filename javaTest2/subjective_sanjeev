@@ -1,0 +1,232 @@
+
+Q1::--
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Q1{
+    public static void main(String[] args) {
+        Stack<Integer> st=new Stack<Integer>();
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Please enter number of inputs::");
+        int n=sc.nextInt();
+        for(int i=0;i<n;i++)
+        {
+            st.add(sc.nextInt());
+        }
+
+        Stack<Integer> st1=new Stack<Integer>();
+        while(!st.isEmpty())
+        {
+            int k=st.peek();
+            st.pop();
+            while(!st1.isEmpty() && st1.peek()>k)
+            {
+                st.add(st1.peek());
+                st1.pop();
+            }
+            st1.add(k);
+        }
+        while(!st1.isEmpty())
+        {
+            System.out.println(st1.peek());
+            st1.pop();
+        }
+    }
+}
+
+
+
+
+Q2::- 
+
+
+
+import java.util.Scanner;
+
+
+public class Q2 {
+    public static void main(String[] args) {
+        String s;
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Please eneter number of test cases::-");
+        int t=sc.nextInt();
+        while(--t >= 0)
+        {
+            
+            System.out.println("Please eneter string:: ");
+            s=sc.next();
+            System.out.println("");
+            int n=s.length();
+            int ans=0;
+            int strt=0,end=1;
+            while(end<n)
+            {
+                if(end==n-1)
+                {
+                    ans=Math.max(ans,strt+1);
+                    break;
+                }
+                else if(s.charAt(strt)==s.charAt(end))
+                {
+                    strt++;
+                    end++;
+                }
+                else 
+                {
+                    end=end-strt+1;
+                    strt=0;
+                }
+            }
+            System.out.println("The length is::"+ ans);
+            
+
+        }
+        
+    }
+}
+
+
+
+
+Q3::-
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+
+public class Q3 {
+    static void solve(Set<ArrayList<Integer>> st,ArrayList<Integer> arr,ArrayList<Integer> tmp,int i)
+    {
+        if(i>=arr.size())
+        {
+            st.add(tmp);
+            return;
+        }
+        else{
+            solve(st,arr,new ArrayList(tmp),i+1);
+            tmp.add(arr.get(i));
+            solve(st,arr,new ArrayList(tmp),i+1);
+        }
+        
+    }
+    public static void main(String[] args) {
+        ArrayList<Integer> arr=new ArrayList<Integer>();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number of test cases::-");
+        int t=sc.nextInt();
+        while(--t >=0)
+        {
+            System.out.print("enter number of elements");
+            int n=sc.nextInt();
+            for(int i=0;i<n;i++)
+            {
+                arr.add(sc.nextInt());
+            }
+            // sorting is not working here pls consider it.. In java some syntax i am forgoting...
+            //Collections.sort(arr);
+            Set<ArrayList<Integer>> st=new HashSet<ArrayList<Integer>>();
+            ArrayList<Integer> tmp=new ArrayList<Integer>();
+
+            solve(st,arr,tmp,0);
+            System.out.println(st);
+            st.clear();
+            System.out.println("");
+
+            
+        }
+        
+
+    }
+}
+
+
+
+
+
+Q4::- 
+
+import java.util.Scanner;
+
+public class Q4 {
+    static int solve(int n,int m,int i,int j)
+    {
+        if(i>=n || j>=m)return 0;
+        if(i==n-1 || j==m-1)return 1;
+        return solve(n,m,i+1,j)+solve(n,m,i,j+1);
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number of test case:: ");
+        int t=sc.nextInt();
+        while(--t>=0)
+        {
+            System.out.println("Please enter row and column::");
+            int n=sc.nextInt();
+            int m=sc.nextInt();
+
+            int ans=solve(n,m,0,0);
+            System.out.println("No of paths is ::"+ ans);
+        }
+        
+    }
+}
+
+
+
+
+Q5::-
+
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Q5 {
+    static Boolean solve(Map<String,Boolean> mp,String s,int i)
+    {
+        if(i==s.length())return true;
+        String tmp="";
+        for(int j=i;j<s.length();j++)
+        {
+            tmp+=s.charAt(j);
+            if(mp.containsKey(tmp) && solve(mp,s.substring(j+1),j+1)==true)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number of test case:: ");
+        int t=sc.nextInt();
+        while(--t>=0)
+        {
+            Map<String,Boolean> mp=new HashMap<>();
+            System.out.println("Enter no. of words in dictionary::");
+            int n=sc.nextInt();
+            for(int i=0;i<n;i++)
+            {
+                mp.put(sc.next(),true);
+            }
+            String s="";
+            System.out.println("Please enter a string to segment::");
+            s=sc.next();
+            if(solve(mp,s,0)==true)
+            {
+                System.out.println("1");
+            }
+            else{
+                System.out.println("0");
+            }
+            
+        }
+    }
+}
+
+

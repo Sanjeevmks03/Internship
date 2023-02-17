@@ -1,0 +1,182 @@
+1. Write a generic method printArray,which takes input of an array and prints each element of the array.
+   Print an array of Interger,Double,Character using the same method.
+
+
+
+ans:-
+public class Q1{
+    public static <T> void printArray(T[] input)
+    {
+        for(T ele:input)
+        {
+            System.out.print(ele+" ");
+        }
+        System.out.println();
+    }
+    public static void main(String[] args) {
+        Integer arr[]={1,2,3,4,5};
+        Double arrd[]={1.2,2.365,5.657};
+        Character arrc[]={'a','3','f'};
+        System.out.println("Integer elements are::-");
+        printArray(arr);
+        System.out.println("Double elements are::-");
+        printArray(arrd);
+        System.out.println("Character elements are::-");
+        printArray(arrc);
+    }
+}
+2.Write a program that uses a stack to determine whether a string is a palindrome(i.e string is spelled identically backward and forward).The program should ignore       	spaces and punctuation.
+
+import java.util.Iterator;
+import java.util.Scanner;
+import java.util.Stack;
+
+public class Q2 {
+    public static void main(String[] args) {
+        Stack<Character> st=new Stack<Character>();
+        Scanner sc=new Scanner(System.in);
+        System.out.println("please enter a string::-");
+        String s=sc.next();
+        char ch[]=s.toCharArray();
+        for(int i=0;i<ch.length;i++)
+        {
+            st.push(ch[i]);
+        }
+        Iterator<Character> it=st.iterator();
+        int i=ch.length-1;
+        int flag=0;
+        while(it.hasNext())
+        {
+            Object cr=it.next();
+            if(!cr.equals(ch[i--]))
+            {
+                System.out.println("Not a Palindrome");
+                flag++;
+                break;
+            }
+        }
+        if(flag==0)System.out.println("Yes it is a palindrome");
+        sc.close();
+    }
+}
+
+
+3. Write a program that concatenates two linked list objects of characters.Class ListConcatenate should include a static method concatenate that takes references to both 	list objects as arguments and concatenates the second list to the first list.
+
+ans::
+
+import java.util.LinkedList;
+
+public class ListConcatenate {
+    public static void concatenate(LinkedList<Character> l1, LinkedList<Character> l2) 
+    {
+        l1.addAll(l2);    
+    }
+}
+import java.util.Scanner;
+import java.util.LinkedList;
+
+public class Q3 {
+    public static void main(String[] args) {
+        LinkedList<Character> ll1=new LinkedList<Character>();
+        LinkedList<Character> ll2=new LinkedList<Character>();
+        Scanner sc= new Scanner(System.in);
+        System.out.print("Enter the number of characters you want for linkedlist1::");
+        int n1=sc.nextInt();
+        //char c = sc.next().charAt(0);   
+        for(int i=0;i<n1;i++)
+        {
+            ll1.addLast(sc.next().charAt(0));
+        }
+        System.out.print("Enter the number of characters you want for linkedlist1::");
+        int n2=sc.nextInt();
+        for(int i=0;i<n2;i++)
+        {
+            ll2.addLast(sc.next().charAt(0));
+        }
+        //ListConcatenate l=new ListConcatenate();
+        ListConcatenate.concatenate(ll1, ll2);
+        System.out.println(ll1);
+        sc.close();
+    }
+}
+
+
+
+
+4.In the classic problem of the Towers of Hanoi, you have 3 towers and N disks of different sizes which can slide onto any tower. The puzzle starts with disks sorted in ascending order of size form top to bottom (i.e., each disk sites on top of an even larger one). You have the following constraints:
+
+1. Only one disk can be moved at a time.
+2. A disk is slid off the top of one tower onto the next tower.
+3. A disk can only be placed on top of a larger disk.
+
+Write program to move the disks from the first tower to the last using stacks.
+
+import java.util.*;
+public class Q4
+{
+    public static int N;
+    public static Stack<Integer>[] tower = new Stack[4]; 
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        tower[1] = new Stack<Integer>();
+        tower[2] = new Stack<Integer>();
+        tower[3] = new Stack<Integer>();         
+        System.out.println("Enter number of disks");
+        int num = sc.nextInt();
+        sc.close();
+        N = num;
+        toh(num);
+    }
+    public static void toh(int n)
+    {
+        for (int d = n; d > 0; d--)
+            tower[1].push(d);
+        display();
+        move(n, 1, 2, 3);         
+    }
+    public static void move(int n, int a, int b, int c)
+    {
+        if (n > 0)
+        {
+            move(n-1, a, c, b);     
+            int d = tower[a].pop();                                             
+            tower[c].push(d);
+            display();                   
+            move(n-1, b, a, c);     
+        }         
+    }
+    public static void display()
+    {
+        for(int i=N-1;i>=0;i--)
+        {
+            String d1=" ",d2=" ",d3=" ";
+            // d1=String.valueOf(tower[1].get(i));
+            // d2=String.valueOf(tower[2].get(i));
+            // d3=String.valueOf(tower[3].get(i));
+            try
+            {
+                d1=String.valueOf(tower[1].get(i));
+            }
+            catch (Exception e){
+            }    
+            try
+            {
+                d2=String.valueOf(tower[2].get(i));
+            }
+            catch(Exception e){
+            }
+            try
+            {
+                d3=String.valueOf(tower[3].get(i));
+            }
+            catch(Exception e){
+            }
+            System.out.println("  "+d1+"   "+d2+"   "+d3);
+        }
+        System.out.println("\n");         
+    }
+
+}
+

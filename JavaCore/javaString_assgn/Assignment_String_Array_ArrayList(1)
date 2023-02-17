@@ -1,0 +1,465 @@
+(Any 3 of 1-4)
+
+1. Given a string as input, write a program to convert the characters of given string into hexadecimal equivalent of ASCII values.
+	Examples :
+
+	Input : Geek
+	Output : 4765656b 
+
+	Input :  IronMan part 3
+	Output : 49726f6e4d616e20706172742033 
+
+
+ans:-
+
+import java.net.SocketImpl;
+import java.util.ArrayList;
+import java.util.Scanner;
+public class Q1
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Please Enter one string::-");
+        String s=new String();
+        s=sc.nextLine();
+        System.out.println();
+        String arr="";
+        //String arr="";
+        //arr=s.toHexString();
+        for(int i=0;i<s.length();i++)
+        {
+            //System.out.println(s.charAt(i));
+            int k=((int)s.charAt(i));
+            arr+=(Integer.toHexString(k));
+        }
+        System.out.println(arr);
+    }
+}
+
+
+2. Swap corner words and reverse middle characters
+	Write a Java program to take an input string and exchange the first and last word and revers the middle word.
+
+	Examples:
+
+	Input : Hello World GFG Welcomes You
+	Output :You semocleW GFG dlroW Hello
+
+ans:-
+
+import java.util.Scanner;
+public class Q2
+{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Please Enter one string::-");
+        String s=new String();
+        s=sc.nextLine();
+        System.out.println();
+
+        String str1="";
+        String str2="";
+        int n=s.length();
+        int i=0;
+        for(i=0;i<n;i++)
+        {
+            if(s.charAt(i)==' ')
+            {
+                break;
+            }
+            else{
+                str1+=s.charAt(i);
+            }
+
+        }
+        s=s.substring(i, s.length());
+
+        System.out.println(s);
+        for(i=s.length()-1;i>=0;i--)
+        {
+            if(s.charAt(i)==' ')
+            {
+                break;
+            }
+            else{
+                str2=s.charAt(i)+str2;
+            }
+        }
+        s=s.substring(0, i);
+        System.out.println(s);
+
+        n=s.length();
+        StringBuilder string = new StringBuilder(s);
+        string.reverse();
+
+        System.out.println(s);
+        str2+=" "+string+ " ";
+        str2+=str1;
+
+        
+        System.out.println(str2);
+    }
+}
+
+
+
+3. Longest Common Substring in an Array of Strings
+	We are given a list of words sharing a common stem i.e the words originate from same word for ex: the words sadness, sadly and sad all originate from the stem ‘sad’.
+	Our task is to find and return the Longest Common Substring also known as stem of those words. In case there are ties, we choose the smallest one in alphabetical order.
+
+	Examples:
+
+	Input : grace graceful disgraceful gracefully
+	Output : grace
+
+	Input : sadness sad sadly
+	Output : sad
+	
+ans:-
+
+import java.util.Scanner;
+
+class Q4 {
+	public static void main(String args[])
+	{
+        Scanner sc=new Scanner(System.in);
+
+		
+        System.out.print("Please enter the number of string::");
+        int n=sc.nextInt();
+        String[] arr= new String[n];
+        for(int i=0;i<n;i++)
+        {
+            // String str="";
+            // str=sc.nextLine();
+            arr[i]=sc.next();
+        }
+
+
+        String s = arr[0];
+		String ans = "";
+
+		for (int i=0;i<n;i++) {
+			for (int j=i+1;j<=n;j++) {
+				String str=s.substring(i, j);
+				int k=1;
+				for (k=1;k<n;k++)
+					if (!arr[k].contains(str))
+						break;
+				if (k == n && ans.length() < str.length())
+					ans = str;
+			}
+		}
+		System.out.println(ans);
+	}
+}
+
+
+4. An anagram is a word or a phrase made by transposing the letters of another word or phrase; for example, "parliament" is an anagram of "partial men," and "software" is an anagram of "swear oft." Write a program that figures out whether one string is an anagram of another string. The program should ignore white space and punctuation.
+
+ans:- 
+ 
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Arrays;
+public class Q3{
+    public static void main(String[] args) {
+    
+    String s="";
+        String s2="";
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Please Enter one string::-");
+        s=sc.nextLine();
+        System.out.println();
+        
+        System.out.print("Please Enter another string::-");
+        s2=sc.nextLine();
+        System.out.println();
+
+         if(s.length()!=s2.length())
+        {
+            System.out.println("Not Anagram");
+        }
+        int arr[]=new int[26];
+        for(int i=0;i<s.length();i++)
+        {
+            arr[s.charAt(i)-'a']++;
+        }
+        for(int i=0;i<s2.length();i++)
+        {
+            arr[s2.charAt(i)-'a']--;
+        }
+        int flag=0;
+        for(int i=0;i<26;i++)
+        {
+            if(arr[i]!=0)
+            {
+                System.out.println("Not Anagram");
+                flag++;
+                break;
+
+            }
+            
+        }
+        if(flag==0)
+        {
+            System.out.println("Yes it is an Anagram");
+        }
+        
+        
+        Method2:
+        
+        // if(s.length()!=s2.length())
+        // {
+        //     System.out.println("Not Anagram");
+        // }
+        // else
+        // {
+        //     char charArray1[] = s.toCharArray();
+        //     Arrays.sort(charArray1);
+
+        //     char charArray2[] = s2.toCharArray();
+        //     Arrays.sort(charArray2);
+        //     if(Arrays.equals(charArray1,charArray2))
+        //     {
+        //         System.out.println("Yes it is an Anagram");
+        //     }
+        //     else
+        //     {
+        //         System.out.println("Not Anagram");
+        //     }
+        // }
+        
+        
+        method3:
+        // HashMap<Character,Integer> mp=new HashMap<>();
+        // HashMap<Character,Integer> mp2=new HashMap<>();
+        // StringBuilder s=new StringBuilder();
+        // StringBuilder s2=new StringBuilder();
+        // Scanner sc=new Scanner(System.in);
+        // System.out.print("Please Enter one string::-");
+        // s.append(sc.nextLine());
+        // System.out.println();
+        
+        // System.out.print("Please Enter another string::-");
+        // s2.append(sc.nextLine());
+        // System.out.println();
+
+        // if(s.length()!=s2.length())
+        // {
+        //     System.out.println("Not Anagram");
+        // }
+        // else
+        // {
+        //     for(int i=0;i<s.length();i++)
+        //     {
+
+        //         mp.put(s.charAt(i), mp.get(s.charAt(i)) + 1);
+        //     }
+
+        //     for(int i=0;i<s2.length();i++)
+        //     {
+        //         mp2.put(s2.charAt(i), mp2.get(s2.charAt(i)) + 1);
+        //     }
+
+        //     for(int i=0;i<s2.length();i++)
+        //     {
+        //         int val1=mp.get(s.charAt(i));
+        //         int val2=mp2.get(s2.charAt(i));
+        //         if(val1!=val2)
+        //         {
+        //             System.out.println("Not Anagram");
+        //         }
+        //         else{
+        //             System.out.println("Yes it is an Anagram");
+        //         }
+        //     }
+        // }
+        
+
+        
+
+    }
+}
+
+5. 3. Write a Java program to print the following grid. Go to the editor
+
+	Expected Output :
+
+	        - -                                                                                            
+	      - - - -                                                                                            
+	    - - - - - -                                                                                          
+	  - - - - - - - -                                                                                           
+	- - - - - - - - - -                                                                                           
+	  - - - - - - - -                                                                                            
+	    - - - - - -                                                                                            
+	      - - - -                                                                                            
+	        - -                                                                                            
+	             
+	             
+ans:-
+
+import java.util.Scanner;
+public class Q5{
+    public static void main(String[] args) {
+        System.out.println("Please enter any odd number");
+        Scanner sc=new Scanner(System.in);
+        int x=sc.nextInt();
+        if(x%2==0)
+        {
+            System.out.println("The number is even Please enter any odd");
+        }
+        else
+        {
+            int[][] arr=new int[x][2*x-1];
+            for(int i=0;i<=x/2;i++)
+            {
+                int k=2*i +1;
+
+                for(int j=0;j<x;j++)
+                {
+                    if(j>=(x-k)/2&&j<x-(x-k)/2)
+                    {
+                        System.out.print("-");
+                    }
+                    else
+                    {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println("");
+            }
+
+
+            for(int i=x/2-1;i>=0;i--)
+            {
+                int k=2*i +1;
+
+                for(int j=0;j<x;j++)
+                {
+                    if(j>=(x-k)/2&&j<x-(x-k)/2)
+                    {
+                        System.out.print("-");
+                    }
+                    else
+                    {
+                        System.out.print(" ");
+                    }
+                }
+                System.out.println("");
+            }
+
+        }
+    }
+}
+
+6. Ludic numbers are obtained by considering list of natural numbers (starting from 2) and removing i-th number in i-th iteration (where i begins with 2). In every iteration, the first removed number is Ludic. 1 is considered as Ludic.
+
+			Process of generating Ludic numbers :
+
+			Ludic = {1, …}
+
+			Consider natural numbers from 2,
+			2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21 …
+
+			Delete every 2nd number
+			3, 5, 7, 9, 11, 13, 15, 17, 19, 21 ..
+			The first deleted number is 2.
+			Ludic = {1, 2, …}
+
+			Delete every 3rd number.
+			5, 7, 11, 13, 17, 19, 22 ..
+			The first deleted number is 3
+			Ludic = {1, 2, 3, …}
+
+			Delete every 4th number.
+			5, 7, 11, 13, 17, 19, 22 ..
+			The first deleted number is 5
+			Ludic = {1, 2, 3, 5, ..}
+
+			This process continues..
+
+	Given a number n, print all Ludic numbers smaller than or equal to n.
+
+	Examples :
+
+	Input : n = 10
+	Output : 1, 2, 3, 5, 7
+
+	Input : n = 25
+	Output : 1, 2, 3, 5, 7, 11, 13, 17, 23, 25 
+
+
+
+ans::-
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Scanner;
+public class Q6{
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Pls enter any number::");
+        int n=sc.nextInt();
+        
+        ArrayList<Integer> arr =  new ArrayList<>();
+        for(int i =1;i<=n;i++){
+            arr.add(i);
+        }
+        for(int i=1;i<arr.size();i++)
+        {
+            int top = arr.get(i);
+            int remove = top+i;
+            while(remove<arr.size()){
+                arr.remove(remove);
+                remove = remove+top-1;
+            }
+        }
+        System.out.println(arr);
+        
+        
+        // HashMap<Integer,Integer> mp=new HashMap<>();
+        // ArrayList arr=new ArrayList<>();
+        // arr.add(1);
+        // for(int i=2;i<=n;i++)
+        // {
+        //     mp.put(i,0);
+        // }
+        // for(int i=2;i<=n;i++)
+        // {
+        //     int flag=2;
+        //     for(int m=i;m<=n;m++)
+        //     {
+        //         if(mp.get(m)==0)
+        //         {
+        //             arr.add(m);
+        //             flag=m;
+        //             break;
+        //         }
+        //     }
+        //     int cnt=-1;
+        //     for(int j=flag;j<=n;j++)
+        //     {
+        //         if(mp.get(j)==0)
+        //         {
+        //             cnt++;
+        //         }
+        //         //cnt++;
+        //         if(cnt%i==0)
+        //         {
+        //             mp.put(j,1);
+        //         }
+                
+        //     }
+        // }
+
+        // for(int i=0;i<arr.size();i++)
+        // {
+        //     System.out.print(arr.get(i));
+        //     System.out.print(" ");
+        // }
+
+        
+    }
+}
+
+

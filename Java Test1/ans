@@ -1,0 +1,100 @@
+Answers of Objective Question::-
+Section B::-
+
+
+1.
+
+what initializes latest will execute, so answer will be
+ a. B says hello
+ b. B says hello
+ c. false
+ d. B says Hello
+ 
+ 4.
+  b=new A();
+  it is invalid because we cannot create an object of derived class by giving the reference of base class.
+  
+  5.
+  
+  c1 has 5 apples
+  c2 has 15 apples  // since apple is static
+  c1 has 15 mangoes
+  c2 has 20 mangoes
+  
+  6.
+  
+  int findOccurences(int[] input, int n){
+	int occurrences = 0;
+	map<Integer,Integer>mp=new HashMap();
+	for(int i=0;i<input.size();i++)
+	{
+		mp.put(input[i],mp.getValue[input[i]]+1);
+	}
+	Iterator<Integer,Integer>itr=mp.Iterator();
+	while(itr.hasNext())
+	{
+		n--;
+		itr.next();
+		if(n==0)
+		{
+			occurences=itr.value;
+			break;
+		}
+	}
+	
+	
+	return occurrences;
+}
+  
+  7.
+  Class is the building blocks of object oriented programming but we can access the variables and functions of class by using the access modifier. So make the class abstract from the rest world we have to do abstraction. Interface is 100% abstraction.
+  
+  The main difference is 
+  we can have multiple inheritance by using interface but it is not allowed in class.
+  
+  8. we have declared the string but not initiallized it.
+  
+  9.java.lang.Exception is the general exception it will give you all the exception whether it is compiletime i.e checked or runtime i.e unchecked.
+  
+  But java.lang.RuntimeException is the specific exception which only gives the exception occured at runtime but it will not cath the exception occured at compile time.
+  
+  
+  10.
+  int f[n];
+  f[0]=0;
+  f[1]=1;
+  int fib(int n)
+  {
+	if(n<=1)
+	{
+		return n;
+	}
+	else
+	{
+	return f[n]=fib(n-1)+fib(n-2);
+	}
+  }
+  
+  
+  11. Again string name is declared but not initialized.
+  
+  12. doSomeWork is a static type function and it is calling toString() method which is non static it will give error.
+  
+  13. we have already created a c1 object in the above code then this code might give error.
+  
+  
+  14.
+  
+  int factorial(int n)
+  {
+  	if(n<=1)return 1;
+  	else
+  	{
+  		return n* factorial(n-1);
+  	}
+  }
+  
+  15.
+  output::-
+  stream slip strream
+  
