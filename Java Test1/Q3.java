@@ -44,7 +44,7 @@ public class Q3 {
                     st.add(ch[j]);
                 }
             }
-            Iterator<Character>itr=Set.iterator<Character>();
+            Iterator<Character>it=Set.iterator<Character>();
             // Iterator is not working here...
             while(it.hasNext())
             {

@@ -4,7 +4,7 @@
 }
 
 body{
-    background-image: url('background_image.jpeg');
+    background-image: url('src/background_image.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -141,4 +141,20 @@ h6{
 }
 .copy{
     margin-top: 7%;
+}
+
+@media screen and (max-width: 768px) {
+    .content{
+        margin-left: 25%;
+        margin-right: 25%;
+        margin-bottom: 2%;
+        margin-top: 2%;
+        text-align: center;
+        color: rgb(127, 120, 120);
+    
+    }
+    .mai{
+        background-color: rgb(244, 233, 233);
+    }
+    
 }
