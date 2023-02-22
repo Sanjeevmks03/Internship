@@ -10,10 +10,7 @@ function sign() {
     let pimage = document.getElementById("pimage").value;
     let pass = document.getElementById("pass").value;
 
-    function logged(usernm, password) {
-        this.username = usernm;
-        this.password = password;
-    }
+
 
     function person(first, last, dob, eid, signemail, pimage, pass) {
         this.firstname = first;
@@ -25,28 +22,38 @@ function sign() {
         this.pass = pass;
     }
 
-    // localStorage.setItem(first,JSON.stringify(new person(first,last,dob,eid,signemail,pimage,pass)));
-    if (localStorage.getItem(first)) {
-        let user = JSON.parse(localStorage.getItem(first));
-        let username = user.firstname;
-        let passw = user.pass;
-        if (passw === pass) {
-            alert("user already exists");
+    let users = [];
+
+    if (localStorage.getItem("users")) {
+        users = JSON.parse(localStorage.getItem("users"));
+        console.log(users);
+
+        //array1.forEach(element => console.log(element));
+        let flag = false;
+
+        users.forEach(element => {
+            if (element.eid === eid) {
+                alert("User already exists");
+                flag = true;
+            }
+        });
+
+        if (flag === false) {
+            users.push(new person(first, last, dob, eid, signemail, pimage, pass));
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("You have signed in succesfully ! Please login to continue");
+            location.replace("Loginpage.html");
+
         }
-        else {
-            alert("signin succesfull");
-            localStorage.setItem(first, JSON.stringify(new person(first, last, dob, eid, signemail, pimage, pass)));
-            window.location.replace("/loginpage.html");
-        }
-    }
-    else{
 
     }
-
-    if (username === undefined) {
-        localStorage.setItem(first, JSON.stringify(new person(first, last, dob, eid, signemail, pimage, pass)));
+    else {
+        users.push(new person(first, last, dob, eid, signemail, pimage, pass));
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("You have signed in succesfully ! Please login to continue");
+        location.replace("Loginpage.html");
     }
-    else 
 
 
 }
@@ -55,28 +62,94 @@ function sign() {
 
 function loginfunc() {
 
+    function loggeduser(usernm, password) {
+        this.username = usernm;
+        this.password = password;
+    }
+
     let first = document.getElementById("name").value;
     let pass = document.getElementById("pass").value;
 
-    let user = JSON.parse(localStorage.getItem(first));
-    console.log(user.length());
-    if (JSON.stringify(user).length === 0) {
-        alert("user doesn't exist")
+    if (localStorage.getItem("loggeduser")) {
+        location.replace("webpage.html");
+        // let detail = JSON.parse(localStorage.getItem("users"));
+        // let logged = JSON.parse(localStorage.getItem("loggeduser"));
+        // detail.forEach(key => {
+        //     if (key.firstname === logged.username && key.pass === logged.password) {
+
+
+        //         let name = key.firstname + key.lastname;
+        //         let desig = key.desig;
+        //         let mobile = key.mobile;
+        //         let email = key.email;
+        //         let link = key.link;
+        //         let language = key.language;
+        //         let pimage = key.pimage;
+        //         location.replace("webpage.html");
+        //         document.getElementById("fname").replaceWith(name);
+        //         document.getElementById("desig").replaceWith(desig);
+        //         document.getElementById("email").replaceWith(email);
+        //         document.getElementById("pimg").replaceWith(pimage);
+        //         console.log(name);
+        //         console.log(desig);
+        //         console.log(email);
+        //         console.log(pimage);
+
+
+
+
+        //     }
+        // })
     }
     else {
-        let username = user.firstname;
-        let passw = user.pass;
-        console.log(passw);
 
-        if (passw === pass) {
-            alert("welcome" + username);
-            window.location.replace("weppage.html");
+        if (localStorage.getItem("users")) {
+            users = JSON.parse(localStorage.getItem("users"));
+
+            let flag = false;
+
+            users.forEach(element => {
+                if (element.firstname === first && element.pass === pass) {
+
+                    localStorage.setItem("loggeduser", JSON.stringify(new loggeduser(first, pass)));
+                    alert("welcome");
+                    location.replace("webpage.html");
+
+
+                    flag = true;
+                    let detail = JSON.parse(localStorage.getItem("users"));
+                    detail.forEach(key => {
+                        if (key.firstname === first && key.pass === pass) {
+                            let name = key.firstname + key.lastname;
+                            let desig = key.desig;
+                            let mobile = key.mobile;
+                            let email = key.email;
+                            let link = key.link;
+                            let language = key.language;
+                            let pimage = key.pimage;
+
+                            document.getElementById("fname").replaceWith(name);
+                            document.getElementById("desig").replaceWith(desig);
+                            document.getElementById("email").replaceWith(email);
+                            document.getElementById("pimg").replaceWith(pimage);
+
+                        }
+                    })
+
+
+                }
+            });
+
+            if (flag === false) {
+                alert("username or password is incorrect!");
+            }
+
         }
         else {
-            alert("username or password is not correct");
-
+            alert("User doesn't exists! please sign up first");
         }
     }
+
 
 
 }
