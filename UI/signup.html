@@ -9,8 +9,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="signup.css">
-    <script src="sign.js"></script>
-    <script src="webpage.js"></script>
+    
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -20,7 +20,7 @@
         <div class="signup">Sign up</div>
         <div class="row">
             <div class="col-lg-10">
-                <form action="" id="form" method="get">
+                <form action="" id="form">
                     <div class="form-group">
                         <label for="fname">First Name :</label>
                         <input type="text" class="form-control" id="fname" placeholder="First name" required>
@@ -49,8 +49,28 @@
                         <label for="pass">Password :</label>
                         <input type="password" class="form-control" id="pass" placeholder="Password" required>
                     </div>
+                    <div class="form-group">
+                        <label for="design">Designation :</label>
+                        <input type="text" class="form-control" id="desig" placeholder="Software Developer" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address :</label>
+                        <input type="text" class="form-control" id="address" placeholder="rajaprasadamu,block c,Hyderabad" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="design">Language :</label>
+                        <input type="text" class="form-control" id="language" placeholder="English" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mob">Contact Number :</label>
+                        <input type="number" class="form-control" id="mob" placeholder="9001083433" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="website">website :</label>
+                        <input type="url" class="form-control" id="website" placeholder="linkedin//sanjeev.com" required>
+                    </div>
                     <div class="form-group" id="sign">
-                        <button type="button" class="btn btn-primary" id="signup" onclick="sign();">Sign Up</button>
+                        <button type="submit" class="btn btn-primary" id="signup"  >Sign Up</button>
                     </div>
 
                 </form>
@@ -64,7 +84,7 @@
     </div>
 
 
-
+    <script src="signupnk.js"></script>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

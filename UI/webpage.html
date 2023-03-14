@@ -7,7 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="webpage.css">
-    <script src="modal.js"></script>
+    
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
@@ -32,8 +33,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="signup.html"><span
                             class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="Loginpage.html"><span
-                            class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="Loginpage.html" onclick="logout()"><span
+                            class="glyphicon glyphicon-log-in" ></span> Logout</a></li>
             </ul>
         </div>
     </nav>
@@ -62,8 +63,8 @@
                                     <h4 class="modal-title">Your details</h4>
                                 </div>
                                 <div class="modal-body" >
-                                    <div style="float: inline-end;" >
-                                        <img src="src/sanjeev.jpeg"  class="rounded-circle" style="width: 120px; height: 120px;" alt="Profile Pic" >
+                                    <div class="col-sm-3" style="float: inline-end; text-align: center;" >
+                                        <img src="src/pimage.jpeg"  class="rounded-circle" id="modalimage" style="width: 120px; height: 120px;" alt="Profile Pic" >
                                     </div>
                                     <div class="modal_area" >
                                         <div class="grid-container">
@@ -106,6 +107,7 @@
                                         
                                     </div>
                                     
+                                    
 
                                 </div>
 
@@ -123,7 +125,7 @@
                                     id="simage">
                             </div>
                             <div class="name">
-                                <p style="font-size: larger;" id="sname"><strong> Sanjeev Kumar</strong></p>
+                                <p style="font-size: larger;" id="sname"> Sanjeev Kumar</p>
                             </div>
                             <div class="gesig">
                                 <p id="sdesig">Programmer</p>
@@ -400,6 +402,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+        <script src="modal.js"></script>
+    <script src="webpage.js"></script>
+    <script src="modal.js"></script>
 </body>
 
 </html>

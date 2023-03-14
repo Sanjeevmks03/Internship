@@ -18,6 +18,7 @@ body{
 #form{
     padding-top: 35px;
 }
+
 ::placeholder{
     font-style: italic;
     font-size: small;
@@ -27,6 +28,7 @@ body{
     margin-left: 23%;
     margin-right: 23%;
     margin-bottom: 0px;
+    
 }
 #sign{
     text-align: center;
@@ -58,6 +60,18 @@ body{
     font-size: small;
     margin-left: 5px;
     
+}
+#website{
+    height: 25px;
+}
+#desig{
+    height: 25px;
+}
+#mob{
+    height: 25px;
+}
+#language{
+    height: 25px;
 }
 #pass{
     height: 25px;
