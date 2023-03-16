@@ -54,6 +54,9 @@ body{
 #email{
     height: 25px;
 }
+#address{
+    height: 25px;
+}
 #pimage{
     height: 25px;
     padding: 1px;
@@ -70,9 +73,9 @@ body{
 #mob{
     height: 25px;
 }
-#language{
+/* #language{
     height: 25px;
-}
+} */
 #pass{
     height: 25px;
 }
@@ -90,4 +93,7 @@ body{
 label{
     color: #3d3948;
     font-size: small;
+}
+option {
+    padding: 5px 0;
 }

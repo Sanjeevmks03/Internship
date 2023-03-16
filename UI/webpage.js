@@ -1,7 +1,14 @@
-if (!localStorage.getItem("users"))
+if (!localStorage.getItem("loggeduser"))
 {
     location.replace("/Loginpage.html");
 }
+if (!localStorage.getItem("users"))
+{
+    localStorage.removeItem("loggeduser");
+    location.replace("/Loginpage.html");
+}
+
+
     
 if (localStorage.getItem("loggeduser")) {
     let detail = JSON.parse(localStorage.getItem("users"));
@@ -97,4 +104,5 @@ function update() {
 
 function logout(){
     localStorage.removeItem("loggeduser"); 
+    location.reload();
 }
