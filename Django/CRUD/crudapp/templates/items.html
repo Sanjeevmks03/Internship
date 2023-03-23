@@ -1,0 +1,41 @@
+
+{% extends 'Index.html' %}
+{% load static %}
+{% static "images" as baseurl %}
+{% block content %}
+
+<div class="container">
+    <div class="row" >
+        {% for i in avail %}
+            <div class="col-sm-4" id="itemcol">
+                <div class="container-fluid" id="course">
+                    <div class="img">
+                        <img src="{{i.image.url}}" width="50%" height="100px">
+                    </div>
+                    <div class="title"><p>{{i.title}}</p></div>
+                    <div class="price">
+                        {% if i.offer %}
+                            <p style="color:DodgerBlue"> Price: Rs <s>{{i.price}}</s></p>
+                            <p style="color:green">Discount Price: Rs {{i.discount}}</p>
+                        {% else %}
+                            <p style="color:DodgerBlue">Price: Rs {{i.price}}</p>
+                        {% endif %}
+                        
+                        {% comment %} <p style="color:DodgerBlue"><s> Price: Rs {{i.price}}</s></p>
+                        <p style="color:green">Discount Price: Rs {{i.discount}}</p> {% endcomment %}
+                    </div>
+                    <div class="desc"> 
+                        <p>{{i.description}}</p>
+                    </div>
+                    <div id="add">
+                        <button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block"><span class="bi bi-cart teal-color" ></span>  Add to Cart</button>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        {% endfor %}
+    
+    </div>
+</div>
+{% endblock content %}

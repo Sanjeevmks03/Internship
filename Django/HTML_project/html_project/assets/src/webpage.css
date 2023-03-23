@@ -1,0 +1,208 @@
+*{
+    
+}
+p{
+    font-size: small;
+}
+h4{
+    font-size: small;
+}
+.body{
+    background-size: cover;
+    
+}
+#whole{
+    background-color: #f0f0f0;
+}
+
+#cont{
+   margin: 0px;
+}
+
+#detail{
+    /* background-color: blanchedalmond;
+    height: 600px; */
+    background-color: white;
+    margin-top: 5px;
+    
+}
+#prof{
+    margin-right: 4px;
+    height: fit-content;
+    /* background-color: cornsilk; */
+    background-color: white;
+    margin-top: 5px;
+    
+}
+
+#navbutton
+{
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+.profile{
+    /* background-color: aquamarine; */
+    padding: 10px;
+    border-bottom: 1px solid black;
+
+}
+.pimage{
+    text-align: center;
+}
+.name{
+    margin-top: 20px;
+    font-size: larger;
+}
+.address{
+    /* background-color: blueviolet; */
+    padding: 15px;
+    border-bottom: 1px solid black;
+}
+.add{
+    /* height: 20px; */
+    margin: 4px;
+    padding: 0px;
+}
+.mob{
+    /* height: 20px; */
+    padding: 0px;
+    margin: 4px;
+}
+.gmail{
+    /* height: 20px; */
+    padding: 0px;
+    margin: 4px;
+}
+.linkedin{
+    /* height: 20px; */
+    padding: 0px;
+    margin: 4px;
+}
+.lang{
+    /* height: 20px; */
+    padding: 0px;
+     margin: 4px;
+}
+
+.social{
+    /* background-color: cornflowerblue; */
+    text-align: center;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.cloud{
+    margin-left: 20px;
+}
+#abtdetail{
+    padding-top: 10px;
+}
+.back{
+    padding-top: 10px;
+    padding-left: 4px;
+    padding-bottom: 10px;
+    /* background-color: brown; */
+    border-bottom: 1px solid black;
+}
+#wexpdetail{
+    padding-top: 10px;
+}
+.everything{
+    /* background-color: aliceblue; */
+}
+#about{
+    padding-top: 10px;
+    border-bottom: 1px solid black;
+}
+.about{
+    /* background-color: azure; */
+}
+.work{
+    /* background-color: burlywood; */
+}
+#wexp{
+     border-bottom: 1px solid black; */
+}
+.skill{
+    /* background-color: antiquewhite; */
+}
+#skilldetail{
+    padding-top: 10px;
+}
+#skill{
+    border-bottom: 1px solid black;
+}
+.skillname{
+    border-left: 5px solid #47b566;
+    margin-top: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    
+}
+#skillname{
+    border-bottom: 1px solid black;
+    margin-top: 4px;
+}
+.skillsets{
+    display: flex;
+}
+.skillset{
+    padding: 3px;
+}
+.skillset p{
+    padding: 4px;
+    font-size: small;
+} 
+.education{
+    /* background-color: azure; */
+}
+.edudetails{
+    padding-top: 10px;
+}
+#edu
+{
+    border-bottom: 1px solid black;
+}
+#sub{
+    display: flex;
+
+}
+.subjects{
+    padding: 3px;
+}
+.subjects p{
+    padding: 3px;
+}
+.interest{
+    /* background-color: aquamarine; */
+    margin-bottom: 25px;
+}
+#int{
+    border-bottom: 1px solid black;
+}
+#intdetails{
+    padding-top: 10px;
+}
+#items{
+    display: flex;
+}
+#intitems{
+    padding: 3px;
+}
+#intitems p{
+    padding: 3px;
+}
+
+
+.grid-container {
+    display: grid;
+    column-gap: 10px;
+    row-gap: 20px;
+    grid-template-columns: auto auto;
+    padding: 10px;
+  }

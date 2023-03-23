@@ -1,0 +1,10 @@
+.titlehead{
+    height: 40px;
+    padding-top: 10px;
+    background-color: rgb(187, 226, 240);
+}
+.titlename{
+    padding-left: 30px;
+    color: rgb(200, 55, 55);
+    font-weight: bold;
+}

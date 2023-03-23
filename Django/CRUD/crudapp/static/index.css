@@ -1,0 +1,41 @@
+body{
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.footer{
+    padding-top: 40px;
+    background-color: rgb(21, 20, 22);
+    height: 300px;
+}
+ul{
+    color: azure;
+}
+.title{
+    text-align: center;
+    color: rgb(15, 117, 30);
+}
+.img{
+    text-align: center;
+}
+#course{
+    margin-top: 10px;
+    background-color: rgb(209, 221, 50);
+    padding-top: 20px;
+    height: fit-content;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+
+#cart{
+    color: white;
+    text-decoration: none;
+}
+
+.price{
+    height: 100px;
+}
+.desc{
+    height:100px;
+}
