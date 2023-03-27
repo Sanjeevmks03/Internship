@@ -1,25 +1,46 @@
 {% extends 'Index.html' %}
 
 {% block content %}
+
 <div class="container-fluid">
-    <div class="row mx-auto">
-
-        {% for item in product %}
-
-            <div class="card mx-auto mb-3" style="width: 18rem;">
-                <img src="{{item.image.url}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">{{item.name}}</h5>
-                <p class="card-text">{{item.description}}</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                <li class="list-group-item">Price: {{item.price}}</li>
-                <li class="list-group-item">Discounted Price: {{item.Discount_price}}</li>
+    <div class="row">
+        <div class="col-lg-3 mt-4  ">
+            <div class="list-group position-fixed">
+                {% for items in category %}
+                    <a href="?categ={{items.id}}" class="list-group-item list-group-item-action">{{items.name}}</a>
+                {% endfor %}
                 
-                </ul>
             </div>
-        {% endfor %}
+        </div>
+        <div class="col-lg-9">
+            <div class="row mx-auto">
+                {% for item in product %}
+                    <div class="card mx-auto mb-3" style="width: 18rem;">
+                        <img src="{{item.image.url}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <p class="card-text">{{item.description}}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Price: {{item.price}}</li>
+                        <li class="list-group-item">
+                            {% if item.offer %}
+                                Discounted Price: {{item.Discount_price}}
+                            {% endif %}
+                            
+                        </li>
+                        <li class="list-group-item">
+                            <button type="button" class="btn btn-light btn-sm"><span class="bi bi-cart" ></span>  Add to cart</button>
+                        </li>
+                        
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
     </div>
+    
 </div>
 {% endblock content %}
     

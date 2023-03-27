@@ -1,0 +1,54 @@
+{% extends 'Index.html' %}
+{% block content %}
+    <div class="container">
+        <div class="col-lg-4 mx-auto border rounded pt-4">
+            <div class="p-4 m-4" >
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="alert alert-primary" role="alert">
+                        <strong>Create an account</strong>
+                    </div>
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">
+                            <strong>{{error}}</strong>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="form-group">
+                    <label for="">Name: </label>
+                    <input type="text" name="name" id="" class=" form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                    
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email: </label>
+                        <input type="text" name="email" id="" class=" form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="">Password: </label>
+                        <input type="Password" name="password" id="" class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="">Confirm Password: </label>
+                        <input type="text" name="confirm" id="" class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="">Mobile No. : </label>
+                        <input type="text" name="mobile" id="" class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="">Place: </label>
+                        <input type="text" name="place" id="" class="form-control form-control-sm" placeholder="" aria-describedby="helpId">
+                        
+                    </div>
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary">Submit</button> 
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
