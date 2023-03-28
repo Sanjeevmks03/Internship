@@ -1,0 +1,61 @@
+{% extends 'Index.html' %}
+{% block content %}
+{% load cart %}
+    <div class="container">
+        <div class="border rounded p-4 m-4 " style="background-color:DarkOrange" >
+            {% if product|total:request.session.cart %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S. No.</th>
+                        <th>Products</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>total Price</th>
+                        <th>Add/Remove</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in product %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><span><img style="height:20px" src="{{item.image.url}}" class="rounded-circle" alt=""></span>    {{item.name}}</td>
+                        <td>{{item.Discount_price}}</td>
+                        <td>{{item|item_quantity:request.session.cart}}</td>
+                        <td>{{item|price_total:request.session.cart}}</td>
+                        <td>
+                
+                            <div class="mb-2 mt-2" >
+                                <form action="" method="post">
+                                    {% csrf_token %}
+                                    <input type="text" name="product" value="{{item.id}}" hidden>
+                                    <input type="submit" class="btn btn-danger btn-sm " style="float:left" name="remove" value="-"> </button>
+                                    <div class="text-center  " style="float:left">{{item|item_quantity:request.session.cart}}  </div>
+                                    <input type="submit" class="btn btn-success btn-sm mb-2" value="+" style="float:left"></button>
+                                </form>
+                               
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    
+                   
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="4">Total:- </th>
+                        <th>{{product|total:request.session.cart}}</th>
+                        
+                        
+                    </tr>
+                </tfoot>
+            </table>
+            {% else %}
+            <div>OOPs !! Your cart is Empty----</div>
+            {% endif %}
+            
+        </div>
+        
+    </div>
+{% endblock content %}

@@ -27,10 +27,12 @@ class products(models.Model):
         self.save()
 
 
-
     @staticmethod
     def get_all_products():
         return products.objects.all()
+    @staticmethod
+    def get_all_products_by_ids(ids):
+        return products.objects.filter(id__in=ids)
     
     
     

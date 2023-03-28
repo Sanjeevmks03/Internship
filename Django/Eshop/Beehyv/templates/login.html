@@ -8,6 +8,12 @@
                     <div class="alert alert-primary" role="alert">
                         <strong>Login</strong>
                     </div>
+                    {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        <strong>{{error}}</strong>
+                    </div>
+                    {% endif %}
+                    
                     <div class="form-group">
                     <label for="">Username: </label>
                     <input type="text" name="name" id="" class=" form-control form-control-sm" placeholder="" aria-describedby="helpId">
@@ -21,7 +27,7 @@
                         <input type="password" name="password" id="" class=" form-control form-control-sm" placeholder="" aria-describedby="helpId">
                     </div>
                     <div class="form-group mt-4">
-                        <button type="submit" class="btn btn-primary">Submit</button> 
+                        <button type="submit" class="btn btn-primary float-end">Login</button> 
                     </div>
                 </form>
             </div>

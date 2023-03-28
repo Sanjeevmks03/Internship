@@ -28,18 +28,27 @@
                 <a class="nav-link" href="store">Store</a>
               </li>
               <li class="nav-item dropdown">
+                {% if request.session.email %}
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{request.session.name}}
+                </a>
+                {% else  %}
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Account
                 </a>
+                {% endif %}
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">User</a></li>
+                  {% if request.session.email %}
+                  <li><a class="dropdown-item" href="logout">Logout</a></li>
+                  {% else  %}
                   <li><a class="dropdown-item" href="login">Login</a></li>
-                  <li><hr class="dropdown-divider"></li>
                   <li><a class="dropdown-item" href="signup">Signup</a></li>
+                  {% endif %}
+                  
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="btn btn-light " href="#" role="button"><span class="bi bi-cart" ></span>  Go to Cart</a>
+                <a class="btn btn-light " href="cart" role="button"><span class="bi bi-cart" ></span>  Go to Cart</a>
               </li>
             </ul>
           </div>
