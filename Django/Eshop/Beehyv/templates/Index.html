@@ -48,7 +48,10 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="btn btn-light " href="cart" role="button"><span class="bi bi-cart" ></span>  Go to Cart</a>
+                <a class="btn btn-light " href="order" role="button">Your Orders</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-light " href="cart" role="button"><span class="bi bi-cart" ></span>  Go to Cart<span class="badge " style="color:red">{{request.session.cart.keys|length}}</span></a>
               </li>
             </ul>
           </div>

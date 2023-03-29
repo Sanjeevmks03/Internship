@@ -1,0 +1,47 @@
+{% extends 'Index.html' %}
+{% block content %}
+{% load cart %}
+    <div class="container">
+        <div class="border rounded p-4 m-4 " style="background-color:Gold" >
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>S. No.</th>
+                        <th>Products</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>total Price</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in orders %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td><span><img style="height:20px" src="{{item.product.image.url}}" class="rounded-circle" alt=""></span>    {{item.product}}</td>
+                        <td>{{item.product.price}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.quantity|multiply:item.product.price}}</td>
+                        {% if item.status %}
+                        <td>
+                            <span class="badge badge-success">Completed</span>
+                        </td>
+                        {% else %}
+                        <td>
+                            <span class="badge badge-warning">Pending</span>
+                        </td>
+                        {% endif %}
+                        
+                    </tr>
+                    {% endfor %}
+                    
+                   
+                </tbody>
+                
+            </table>
+            
+        </div>
+        
+    </div>
+
+ {% endblock content %}

@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 
 # Create your models here.
@@ -47,7 +48,7 @@ class signup_form(models.Model):
 
     
     def __str__(self):
-        return '{0}'.format("Customers")
+        return '{0}'.format(self.name)
     
     def register(self):
         self.save()
@@ -70,3 +71,23 @@ class login(models.Model):
     
     def register(self):
         self.save()
+
+
+
+class order(models.Model):
+    product=models.ForeignKey(products,
+                              on_delete=models.CASCADE)
+    customer=models.ForeignKey(signup_form,
+                              on_delete=models.CASCADE)
+    quantity=models.IntegerField(default=1)
+    price=models.IntegerField()
+    address=models.CharField(max_length=50,default='', blank=True)
+    phone=models.CharField(max_length=50,default='', blank=True)
+    date=models.DateField(default=datetime.datetime.today)
+    status=models.BooleanField(default=False)
+
+    def placeOrder(self):
+        self.save()
+    @staticmethod
+    def get_order_by_customer_id(id):
+        return order.objects.filter(customer=id).order_by('date')

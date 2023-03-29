@@ -29,3 +29,7 @@ def total(product,cart):
     for p in product:
         sum+=price_total(p,cart)
     return sum
+
+@register.filter(name="multiply")
+def multiply(quantity,price):
+    return quantity*price
