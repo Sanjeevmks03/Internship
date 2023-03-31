@@ -1,50 +1,83 @@
+
 from django.http import HttpResponse
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render,HttpResponsePermanentRedirect
+
+from .serializers import orderserializer, productserializer, signupserializer
+
+# from .serializers import orderserializer, productserializer, signupserializer
 from .models import order, signup_form as users
 from .models import products as items
 from .models import category as cats
 from .models import login as logs
 from django.views import View
 from django.contrib.auth.hashers import make_password,check_password
-
+from .middlewares.auth import auth_middleware
+from django.utils.decorators import method_decorator
+from rest_framework import viewsets
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 # Create your views here.
 
 def index(request):
-
     return render(request,'Index.html')
 
+
+
+class productviewset(viewsets.ModelViewSet):
+    queryset=items.objects.all()
+    serializer_class=productserializer
+
+@api_view(['GET','POST'])
+def productview(request):
+    try:
+        data=request.data
+        serializer=productserializer(data=data)
+        if serializer.is_valid():
+            print(serializer.data)
+    except Exception as e:
+        print(e)
+
+    
+    return Response({'data':serializer.data})
+
+
 def products(request):
-
-    postdata=request.POST
-    name=postdata.get('name')
-    description=postdata.get('description')
-    price=postdata.get('price')
-    image=postdata.get('image')
-    discount=postdata.get('discount')
-    category=postdata.get('category')
-    # if selected_category=='Computer':
-    #     category='1'
-    # else:
-    #     category='2'
-    # print(name,mobile,place)
-    product=items(name=name,
-                    description=description,
-                    price=price,
-                    image=image,
-                    Discount_price=discount,
-                    category=category)
-
     
-    
-    if request.method=='GET':
-        return render(request,'products.html')
-    else:
+    if request.method=='POST':
+        postdata=request.POST
+        name=postdata.get('name')
+        description=postdata.get('description')
+        price=postdata.get('price')
+        # image = postdata.FILES.get('image')
+        checked=postdata.get('offer')
+        if checked:
+            offer=True
+        else:
+            offer=False
+        image=request.FILES['productimage']
+        discount=postdata.get('discount')
+        category_id=postdata.get('category')
+        categories=cats.objects.get(id=category_id)
+        print(offer)
+
+
+        # files = request.FILES  # multivalued dict
+        # image = files.get("image")
+        
+        product=items(name=name,
+                        description=description,
+                        price=price,
+                        image=image,
+                        Discount_price=discount,
+                        offer=offer,
+                        category=categories)
         product.register()
-        return HttpResponse(request.POST.get('name'))
-    # return render(request,"store.html",{'product':product})
+        # return HttpResponse(request.POST.get('name'))
+        return render(request,"store.html",{'product':items.objects.all()})
 
 
-    
+    if request.method=='GET':
+        return render(request,'products.html',{'category':cats.objects.all()})
 
 
 class store(View):
@@ -92,6 +125,11 @@ class store(View):
         return render(request,"store.html",data)
 
     
+
+
+class signupviewset(viewsets.ModelViewSet):
+    queryset=users.objects.all()
+    serializer_class=signupserializer
 
 
 class signup(View):
@@ -147,7 +185,9 @@ class signup(View):
     
         
 class login(View):
+    return_url=None
     def get(self,request):
+        login.return_url=request.GET.get('return_url')
         return render(request,'login.html')
 
     def post(self,request):
@@ -171,7 +211,13 @@ class login(View):
                 request.session['id']=original.id
                 request.session['name']=original.name
                 request.session['email']=original.email
-                return redirect('/store')
+
+                if login.return_url:
+                    
+                    return HttpResponsePermanentRedirect(login.return_url)
+                else:
+                    login.return_url=None
+                    return redirect('/store')
                 # return render(request,"store.html")
             else:
                 error="Invalid email or password!!"
@@ -179,6 +225,28 @@ class login(View):
         else:
              error="User Does'nt exists!!"
              return render(request,'login.html',{'error':error})
+
+
+class change(View):
+    def get(self,request):
+        return render(request,'change_pass.html')
+    def post(self,request):
+        email=request.session.get('email')
+        previous=request.POST.get('previous')
+        new=request.POST.get('new')
+        original=users.objects.get(email=email)
+        hashed_new=make_password(new)
+
+        if check_password(previous,original.password):
+            if previous==new:
+                error="New password is same as previous"
+            else:
+                original.password=hashed_new
+                original.save()
+                return redirect('login')
+        else:
+            error="Please enter correct previous password"
+            return render(request,'change_pass.html',{'error':error})
     
 
 def logout(request):
@@ -241,6 +309,11 @@ class checkout(View):
             request.session['cart']={}
         return redirect('cart')
    
+
+
+class orderviewset(viewsets.ModelViewSet):
+    queryset=order.objects.all()
+    serializer_class=orderserializer
 
 class order_view(View):
     def get(self,request):
