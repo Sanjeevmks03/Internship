@@ -39,6 +39,7 @@
                 {% endif %}
                 <ul class="dropdown-menu">
                   {% if request.session.email %}
+                  <li><a class="dropdown-item" href="products">Add Products</a></li>
                   <li><a class="dropdown-item" href="change">Change Password</a></li>
                   <li><a class="dropdown-item" href="logout">Logout</a></li>
                   {% else  %}

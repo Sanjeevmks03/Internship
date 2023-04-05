@@ -1,7 +1,7 @@
 from . import views
 from django.urls import include, path
 from .middlewares.auth import auth_middleware 
-from .views import change, checkout, login, order_view, orderviewset, productview, productviewset, signup, signupviewset, store,cart
+from .views import change, checkout, login, order_view, orderviewset, productviewset, signup, signupviewset, store,cart
 from rest_framework import routers
 
 
