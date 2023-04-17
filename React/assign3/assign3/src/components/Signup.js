@@ -161,6 +161,12 @@ onsubmit = (e) => {
 }
   render() {
     return (
+      <div>
+      <h6>Q. Create a class component that renders a sign-up form. Username input, Password input, Confirm
+      Password input and a Submit button. The submit button is disabled if the fields are empty. On
+      submit, the password must contain at least 8 characters, at least one capital letter and at least one
+      small letter and the passwords must match. Any invalid entry of password should be shown as error
+      with user-readable message.</h6>
       <div className='container'>
         <div className='row justify-content-center'>
           <div className='col-4 border-0 '>
@@ -184,6 +190,7 @@ onsubmit = (e) => {
           </div>
         </div>
 
+      </div>
       </div>
     )
   }

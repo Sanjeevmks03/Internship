@@ -21,8 +21,8 @@ export default class Todoitems extends Component {
     return (
         
         <div style={{display: this.state.display ? 'block' : 'none'}}>
-            <div><h1>{this.props.mesg}</h1></div>
-            <button onClick={()=>this.func()}>Mark as complete</button>
+            <div><p>{this.props.mesg}</p></div>
+            <button onClick={()=>this.func()} className='btn btn-warning'>Mark as complete</button>
         </div>
       
       

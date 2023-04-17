@@ -1,11 +1,13 @@
 
 import './App.css';
 import Container from './components/Container';
+import Subjective from './components/Subjective';
 
 function App() {
   return (
     <div className="App">
-      <Container/>
+      <Subjective />
+      <Container />
     </div>
   );
 }

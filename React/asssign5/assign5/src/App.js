@@ -5,11 +5,13 @@ import ErrorComponent from './components/ErrorComponent';
 import Focus from './components/Focus';
 import Formparent from './components/Formparent';
 import PetSelector from './components/PetSelector';
+import Subjective from './components/Subjective';
 
 
 function App() {
   return (
     <div className="App">
+      <Subjective/>
       <Errorboundary>
         <ErrorComponent name="Sanjeev"/>
       </Errorboundary>

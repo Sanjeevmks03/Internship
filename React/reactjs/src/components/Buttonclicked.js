@@ -17,8 +17,9 @@ class Buttonclicked extends Component {
     render() {
     return (
         <div>
+            <h6>Q. Create a class component that renders a button which shows how many times it has been clicked.</h6>
             <div>clicked count= {this.state.count}</div>
-            <div><button onClick={()=>this.clickhandle()}>click</button></div>
+            <div><button onClick={()=>this.clickhandle()} className='btn btn-warning'>click</button></div>
         </div>
       
     )

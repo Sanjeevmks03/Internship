@@ -15,9 +15,9 @@ function App() {
 
   
   const items = [
-    new task("Assignment 2 Done", false),
-    new task("Quizess done", false),
-    new task("Theory done", false)
+    new task("Assignment 2", false),
+    new task("Quizes", false),
+    new task("Theory", false)
   ]
 
   return (

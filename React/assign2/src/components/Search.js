@@ -24,6 +24,9 @@ class Search extends Component {
 
     return (
       <div>
+        <h6>Q. Create a class component that renders a search input and below it, a list of names (received from
+“names” prop as an array of strings). Typing in the search box should filter the names displayed in
+the list.</h6>
         <div>
           <input
             type="text" 

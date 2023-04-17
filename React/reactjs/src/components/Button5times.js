@@ -17,13 +17,19 @@ export class Button5times extends Component {
     }
   render() {
     if(this.state.count<5){
-        return <div><button onClick={()=>this.countclick()}>Click</button></div>
+        return <div>
+            <h6>Q. Create a class component that renders a button, which when clicked 5 times, renders a win
+message and disables the button.</h6>
+            <button className='btn btn-success' onClick={()=>this.countclick()}>Click</button>
+            </div>
     }
     else{
         return(
             <div>
+                <h6>Q. Create a class component that renders a button, which when clicked 5 times, renders a win
+message and disables the button.</h6>
                 <div>You won the game</div>
-                <div><button onClick={()=>this.countclick()} disabled>Click</button></div>
+                <div><button className='btn btn-warning' onClick={()=>this.countclick()}  disabled>Click</button></div>
             </div>
         )
     }

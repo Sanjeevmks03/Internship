@@ -19,8 +19,9 @@ class Table extends Component {
 
     return (
       <div>
+        <div>Q. Create a class component that renders a times table depending on the input “number” prop</div>
         <div><input type="number" id="number" ></input></div>
-        <div><button onClick={()=>this.table()}>click</button></div>
+        <div><button onClick={()=>this.table()} className='btn btn-warning'>Table</button></div>
         <div id="ans"></div>
       </div>
     )

@@ -26,7 +26,7 @@ class Todoitem extends Component {
                         {todo.text}
                     </div>
                     <div>
-                        <button type="button" disabled={this.state.disabled} className="btn btn-sm btn-info" onClick={(event) => this.handleClick(todo, event)}>
+                        <button type="button" disabled={this.state.disabled} className="btn btn-sm btn-warning" onClick={(event) => this.handleClick(todo, event)} >
                             completed
                         </button>
                     </div>

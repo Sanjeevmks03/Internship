@@ -28,7 +28,6 @@ class Container extends Component {
     return (
       <div>
         <button type="button" class="btn btn-primary mt-5" onClick={()=>this.addcounter()}>Add Counter</button>
-        {/* <button type="button" class="btn btn-primary">Add Count</button> */}
         <table className="table">
             <tbody>
                 {counterarray}

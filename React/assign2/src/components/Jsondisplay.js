@@ -4,6 +4,10 @@ import dishes from './dishes.json'
 class Jsondisplay extends Component {
     render() {
         return (
+            <div>
+            <h6>Q.Create  a class component that displays a menu from dishes.json (provided with assignment). The
+            file must be imported into the component and should display dishes, with images, comments and
+            ratings. (images are not included but add images with the sources regardless).</h6>
             <div className='row'>
                 {dishes.map((items) => {
                     return (
@@ -32,6 +36,7 @@ class Jsondisplay extends Component {
                     )
                 })}
             </div >
+            </div>
     
         )
     }

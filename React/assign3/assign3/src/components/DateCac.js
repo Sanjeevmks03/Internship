@@ -41,6 +41,8 @@ constructor(props) {
   render() {
     return (
       <div>
+        <h6 className='mt-4'>Q. Create a class component that renders a date input and a submit button. If you input date of birth
+in this input and submit, it should display the calculated age.</h6>
         <form onSubmit={(event)=>this.handleSubmit(event)}>
           <label>
             Enter your date of birth:
@@ -50,7 +52,7 @@ constructor(props) {
               onChange={(event)=>this.handleChange(event)}
             />
           </label>
-          <button type="submit">Calculate Age</button>
+          <button className='btn btn-success' type="submit">Calculate Age</button>
         </form>
         <p>{this.state.age}</p>
         <div className="form-text text-danger">{this.state.error_msg}</div>

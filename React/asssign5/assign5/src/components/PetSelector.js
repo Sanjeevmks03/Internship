@@ -18,6 +18,10 @@ class PetSelector extends Component {
   render() {
     return (
       <div>
+        <h5>Q. Create a class component Animals that returns a list of options (the options are “select” input
+options) of animals and a class component Birds that returns a list of options (“select” input
+options) of birds. Create another component PetSelector that renders a usable select type of
+input with both animals and birds as options.</h5>
         <div className='row justify-content-center mt-5'>
           <div className='col-3'>
             <label >Select Pet::  </label>

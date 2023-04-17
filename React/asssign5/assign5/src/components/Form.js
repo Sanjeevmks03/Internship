@@ -16,6 +16,9 @@ export class Form extends Component {
   render() {
     return (
       <div>
+        <h6>Q. Create a class component Form which renders controlled text inputs for name, address and
+age. Create another class component FormParent which renders Form  and a “Clear” button.
+Clicking this button should clear out the values inside Form .</h6>
         <div class="container">
             <form>
                 <div class="form-group">

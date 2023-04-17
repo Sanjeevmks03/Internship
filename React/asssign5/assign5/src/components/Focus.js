@@ -11,6 +11,7 @@ class Focus extends Component {
   render() {
     return (
       <div>
+        <h6>Q. Create a class component that renders an input and focuses the input on mount</h6>
         <input type="text" ref={this.inputRef} />
       </div>
     )
